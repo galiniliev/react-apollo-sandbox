@@ -13,23 +13,12 @@ const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
 const client = new ApolloClient({
-  uri: "https://galin-test-prod-1.azure-api.net/swapi/",
+  // uri: "https://galin-test-prod-1.azure-api.net/swapi/",
   //uri: "https://flyby-gateway.herokuapp.com/",
+  uri: "https://proxy.apim.net/trivia/",
   cache: new InMemoryCache()
 });
-
-client
-  .query({
-    query: gql`
-      query {
-        films {
-          title
-          uri
-        }
-      }
-    `
-  })
-  .then((result) => console.log(result));
+ 
 
 root.render(
   <ApolloProvider client={client}>
